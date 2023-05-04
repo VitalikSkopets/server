@@ -2,14 +2,46 @@
 name = "server"
 version = "0.1.0"
 description = ""
-authors = ["Your Name <you@example.com>"]
+authors = ["Vitaly Skopets <vitalikskopets@gmail.com>"]
 readme = "README.md"
+repository = "https://github.com/VitalikSkopets/server"
 
 [tool.poetry.dependencies]
 python = "^3.10"
 django = "3.2.19"
 
 
+[tool.poetry.group.dev.dependencies]
+black = "^23.3.0"
+isort = "^5.12.0"
+flake8 = "^6.0.0"
+mypy = "^1.2.0"
+django-stubs = "^4.2.0"
+yamllint = "^1.31.0"
+dotenv-linter = "^0.4.0"
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+
+[tool.black]
+line-length = 88
+target-version = ["py310"]
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.git
+  | \.hg
+  | \.mypy_cache
+  | \.pytest_cache
+  | \.pip-cache
+  | \.poetry
+  | \.venv
+  | \.vscode
+  | _build
+  | buck-out
+  | build
+  | dist
+)/
+'''
